@@ -17,3 +17,17 @@
 
 # ImageProcessor DiskCache 
 **/App_Data/cache/
+
+# C sharp
+obj
+bin
+_ReSharper.*
+*.csproj.user
+*.resharper.user
+*.resharper
+*.suo
+*.cache
+*.Publish.xml
+~$* 
+/packages
+/site
