@@ -30,5 +30,5 @@ _ReSharper.*
 *.Publish.xml
 ~$* 
 /packages
-/site
 /src/packages
+/src/Site/Web.Keys.config

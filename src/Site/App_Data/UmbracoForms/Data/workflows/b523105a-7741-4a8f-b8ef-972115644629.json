@@ -1,0 +1,16 @@
+{
+  "id": "b523105a-7741-4a8f-b8ef-972115644629",
+  "name": "Send template email to test@test.com",
+  "form": "50c6ff74-9bbf-4504-8212-252dbca38652",
+  "active": true,
+  "workflowTypeId": "17c61629-d984-4e86-b43b-a8407b3efea9",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "test@test.com",
+    "SenderEmail": "",
+    "Subject": "The Form '{form_name}' was submitted",
+    "RazorViewFilePath": "Forms/Emails/Example-Template.cshtml",
+    "Attachment": ""
+  },
+  "sortOrder": 1
+}

@@ -33,7 +33,7 @@
             But with default value for Macro Paramater boolean/checkbox being false 
             We want to ensure by default we include the scripts next to the form
         *@
-        includeScripts = Model.MacroParameters["ExcludeScripts"].ToString() == "0";
+        includeScripts = false;
     }
 
     var form = new Guid(s);
@@ -44,5 +44,5 @@
         Guid.TryParse(Request.QueryString["recordId"], out recordGuid);
     }
 
-    Html.RenderAction("RenderForm", "UmbracoForms", new {formId = form, recordId = recordGuid, theme = theme, includeScripts = includeScripts });
+    Html.RenderAction("RenderForm", "UmbracoForms", new {formId = form, recordId = recordGuid, theme = theme, includeScripts = includeScripts, mode = "form" });
 }

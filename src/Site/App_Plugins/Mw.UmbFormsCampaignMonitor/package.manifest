@@ -1,0 +1,6 @@
+﻿﻿{
+    javascript: [
+	    '~/App_Plugins/Mw.UmbFormsCampaignMonitor/Mapping.Controller.js',
+		'~/App_Plugins/Mw.UmbFormsCampaignMonitor/mappingresources.js'
+    ]
+}
