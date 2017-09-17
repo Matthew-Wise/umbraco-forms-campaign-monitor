@@ -5,8 +5,8 @@
         getLists: function() {
             return umbRequestHelper.resourcePromise($http.get(root + 'GetLists'), 'No lists found.');
         },
-        getList: function (id) {
-            return umbRequestHelper.resourcePromise($http.get(root + 'GetList/' + id), 'List ' + id + ' not found');
+        getListFields: function (id) {
+            return umbRequestHelper.resourcePromise($http.get(root + 'GetListFields/?listId=' + id), 'List ' + id + ' not found');
         }
     };
 });

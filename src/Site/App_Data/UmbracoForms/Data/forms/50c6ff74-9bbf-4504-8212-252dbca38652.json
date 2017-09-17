@@ -51,8 +51,8 @@
                   "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
                   "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
                   "dataSourceFieldKey": null,
-                  "mandatory": true,
-                  "regex": "[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+",
+                  "mandatory": false,
+                  "regex": "",
                   "requiredErrorMessage": null,
                   "invalidErrorMessage": null,
                   "condition": {
@@ -148,7 +148,9 @@
   "cssClass": null,
   "disableDefaultStylesheet": false,
   "useClientDependency": false,
-  "workflows": [],
+  "workflows": [
+    "f787e904-4aae-47a5-bec3-a032b33ca8e1"
+  ],
   "datasource": null,
   "submitLabel": "Submit",
   "nextLabel": "Next",

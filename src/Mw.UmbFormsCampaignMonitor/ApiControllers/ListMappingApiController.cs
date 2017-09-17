@@ -17,7 +17,7 @@ namespace Mw.UmbFormsCampaignMonitor.ApiControllers
         }
 
         [HttpGet]
-        public IEnumerable<ListCustomField> GetList([FromUri]string listId)
+        public IEnumerable<ListCustomField> GetListFields(string listId)
         {
             var auth = new ApiKeyAuthenticationDetails(CampaignMonitorConfiguration.ApiKey);            
             var list = new List(auth, listId);

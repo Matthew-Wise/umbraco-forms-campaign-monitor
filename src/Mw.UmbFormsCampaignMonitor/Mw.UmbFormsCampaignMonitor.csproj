@@ -295,6 +295,8 @@
   <ItemGroup>
     <Compile Include="CampaignMonitorConfiguration.cs" />
     <Compile Include="ApiControllers\ListMappingApiController.cs" />
+    <Compile Include="Models\FieldMappingModel.cs" />
+    <Compile Include="Models\ListMappingModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkFlows\PushToMarketing.cs" />
   </ItemGroup>

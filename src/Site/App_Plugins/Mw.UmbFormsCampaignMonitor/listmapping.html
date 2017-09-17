@@ -1,68 +1,84 @@
-﻿<div ng-controller="Mw.UmbFormsCampaignMonitor.Mapping.Controller">
-    <div class="umb-el-wrap">
-        <label class="control-label" for="">
-            List
-            <small class="ng-binding">Select a list to send the user data to.</small>
-        </label>
-        <div class="controls controls-row">
-            <select class="-full-width"
-                    ng-options="list.id as list.name for list in lists" 
-                    ng-model="list">
-                <option value="">Select a list</option>
-            </select>
+﻿<style>
+    .mw-campmon-listmapping input[type=text]{
+        width:100%;
+    }
+</style>
+<div ng-controller="Mw.UmbFormsCampaignMonitor.Mapping.Controller" class="mw-campmon-listmapping">
+    <div ng-class="{'control-group umb-control-group':listId}">
+        <div class="umb-el-wrap">
+            <label class="control-label" for="">
+                List
+                <small class="ng-binding">Select a list to send the user data to.</small>
+            </label>
+            <div class="controls controls-row">
+                <select class="-full-width"
+                        ng-options="list.ListID as list.Name for list in lists"
+                        ng-model="listId"
+                        ng-change="changeList()">
+                    <option value="">Select a list</option>
+                </select>
+            </div>
         </div>
     </div>
-    <div ng-if="list">
-        <div class="umb-forms-mappings" ng-if="mappings.length > 0">
+    <div class="umb-el-wrap" ng-if="listId">
+        <label class="control-label" for="">
+            Mappings
+            <small class="ng-binding">Select the field mappings.</small>
+        </label>
+        <div class="controls controls-row">
+            <div class="umb-forms-mappings" ng-if="mappings.length > 0">
 
-            <div class="umb-forms-mapping-header">
-                <div class="umb-forms-mapping-field -no-margin-left">List field</div>
-                <div class="umb-forms-mapping-field">Form value</div>
-                <div class="umb-forms-mapping-field">Static value</div>
-                <div class="umb-forms-mapping-remove -no-margin-right"></div>
+                <div class="umb-forms-mapping-header">
+                    <div class="umb-forms-mapping-field -no-margin-left">List field</div>
+                    <div class="umb-forms-mapping-field">Form value</div>
+                    <div class="umb-forms-mapping-field">Static value</div>
+                    <div class="umb-forms-mapping-remove -no-margin-right"></div>
+                </div>
+
+                <div class="umb-forms-mapping" ng-repeat="mapping in mappings">
+
+                    <div class="umb-forms-mapping-field -no-margin-left">
+                        <select class="-full-width"
+                                ng-options="field.Key as field.FieldName for field in listFields"
+                                ng-model="mapping.listField"
+                                ng-change="stringifyValue()"
+                                ng-if="!isReservedFieldName(mapping.listField)">
+                            <option value="">Map a list field</option>
+                        </select>
+                        <input type="text" disabled ng-model="mapping.listField" ng-if="isReservedFieldName(mapping.listField)" />
+                    </div>
+
+                    <div class="umb-forms-mapping-field">
+                        <select class="-full-width"
+                                ng-options="field.id as field.value for field in fields"
+                                ng-model="mapping.field"
+                                ng-change="stringifyValue()">
+                            <option value="">Map a field</option>
+                        </select>
+                    </div>
+
+                    <div class="umb-forms-mapping-field">
+                        <input class="-full-width-input"
+                               type="text"
+                               placeholder="Static value"
+                               ng-model="mapping.staticValue"
+                               on-blur="stringifyValue()" />
+                    </div>
+
+                    <div class="umb-forms-mapping-remove -no-margin-right">
+                        <a href="" ng-click="deleteMapping($index)" ng-if="!isReservedFieldName(mapping.listField) || mapping.listField === 'Lastname'">
+                            <i class="icon-trash"></i>
+                        </a>
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="umb-forms-mapping" ng-repeat="mapping in mappings">
-
-                <div class="umb-forms-mapping-field -no-margin-left">
-                    <select class="-full-width"
-                            ng-options="field.id as field.value for field in listFields"
-                            ng-model="mapping.listField"
-                            ng-change="stringifyValue()">
-                        <option value="">Map a list field</option>
-                    </select>
-                </div>
-
-                <div class="umb-forms-mapping-field">
-                    <select class="-full-width"
-                            ng-options="field.id as field.value for field in fields"
-                            ng-model="mapping.value"
-                            ng-change="stringifyValue()">
-                        <option value="">Map a field</option>
-                    </select>
-                </div>
-
-                <div class="umb-forms-mapping-field">
-                    <input class="-full-width-input"
-                           type="text"
-                           placeholder="Static value"
-                           ng-model="mapping.staticValue"
-                           on-blur="stringifyValue()" />
-                </div>
-
-                <div class="umb-forms-mapping-remove -no-margin-right">
-                    <a href="" ng-click="deleteMapping($index)">
-                        <i class="icon-trash"></i>
-                    </a>
-                </div>
-
-            </div>
-
+            <umb-button type="button"
+                        action="addMapping()"
+                        label="Add mapping">
+            </umb-button>
         </div>
-
-        <umb-button type="button"
-                    action="addMapping()"
-                    label="Add mapping">
-        </umb-button>
     </div>
 </div>

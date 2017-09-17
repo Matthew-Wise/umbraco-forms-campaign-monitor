@@ -1,0 +1,12 @@
+{
+  "id": "f787e904-4aae-47a5-bec3-a032b33ca8e1",
+  "name": "Campaign Monitor Test",
+  "form": "50c6ff74-9bbf-4504-8212-252dbca38652",
+  "active": true,
+  "workflowTypeId": "3ad2abbe-676d-489b-a7c6-aa71f931c347",
+  "executesOn": "Submitted",
+  "settings": {
+    "ListMapping": "{\"mappings\":[{\"listField\":\"Email Address\",\"field\":\"a27b913e-0d8e-4aab-b407-114e5802fa7e\",\"staticValue\":\"\",\"$$hashKey\":\"05Q\"},{\"listField\":\"Subscribe\",\"field\":\"268c3385-ecd1-4e32-a043-17898c738357\",\"staticValue\":\"\",\"$$hashKey\":\"05R\"},{\"listField\":\"Name\",\"field\":\"d46cfecc-36a3-4eb2-bd4d-736b856c21b0\",\"staticValue\":\"\",\"$$hashKey\":\"05S\"},{\"listField\":\"[Company]\",\"field\":\"392c24d1-4139-4f9f-d879-82d4e9a06098\",\"staticValue\":\"\",\"$$hashKey\":\"063\"},{\"listField\":\"[Source]\",\"field\":\"\",\"staticValue\":\"website\",\"$$hashKey\":\"05N\"}],\"listId\":\"2f943bacca7d70a4a696743a68637368\"}"
+  },
+  "sortOrder": 0
+}
