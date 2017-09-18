@@ -1,2 +1,2 @@
-# umbraco-forms-marketing
-Umbraco package for adding a form submitter to email marketing lists.
+# umbraco-forms-campaign-monitor
+Umbraco package for pushing records to Campaign monitor lists.
