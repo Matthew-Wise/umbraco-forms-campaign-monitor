@@ -23,4 +23,4 @@ Umbraco 7.6.6
 
 Umbraco Forms 6.0.2
 
-[screen]:https://github.com/Matthew-Wise/umbraco-forms-campaign-monitor/tree/master/media/campagin-monitor-api-keys.jpg "Api Keys screen"
+[screen]:./media/campagin-monitor-api-keys.jpg "Api Keys screen"
