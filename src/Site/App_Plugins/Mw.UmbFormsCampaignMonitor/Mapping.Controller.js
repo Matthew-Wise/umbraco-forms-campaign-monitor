@@ -4,17 +4,20 @@
         {
             listField: "Email Address",
             field: "",
-            staticValue: ""
+            staticValue: "",
+            toolTip: "This field is required to add a user to Campaign Monitor"
         },
         {
             listField: "Subscribe",
             field: "",
-            staticValue: ""
+            staticValue: "",
+            toolTip: "If set the field needs a value (checkboxes must be true)"
         },
         {
             listField: "Name",
             field: "",
-            staticValue: ""
+            staticValue: "",
+            toolTip: "Name is required by Campaign monitor, it can be split over Name and last name"
         },
         {
             listField: "Lastname",
@@ -39,6 +42,18 @@
             }
         } else {
             var value = JSON.parse($scope.setting.value);
+            value.mappings.forEach(function(mapping) {
+                if (!$scope.isReservedFieldName(mapping.listField) || mapping.toolTip) {
+                    return;
+                }
+                var defaultMap = defaultMappings.filter(function(d) {
+                    return d.listField === mapping.listField;
+                });
+                if (defaultMap.length > 0 && defaultMap[0].toolTip) {
+                    mapping.toolTip = defaultMap[0].toolTip;
+                }
+
+            });
             $scope.listId = value.listId;
             $scope.mappings = value.mappings;
             if ($scope.listId != null) {
@@ -59,6 +74,22 @@
                 $scope.fields = response.data;
             });
         }
+    }
+
+    $scope.mouseOver = function($event, tip) {
+        $scope.tooltip = {
+            show: true,
+            event: $event,
+            content: tip
+        };
+    }
+ 
+    $scope.mouseLeave = function() {
+        $scope.tooltip = {
+            show: false,
+            event: null,
+            content: null
+        };
     }
 
     $scope.isReservedFieldName = function (fieldName) {
